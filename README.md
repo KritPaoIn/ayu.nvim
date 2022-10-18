@@ -1,5 +1,4 @@
-# Ayu theme for personal purposes
-
+# Ayu theme for personal use
 
 ### Inspiration
 - [ayu-theme/ayu-vim](https://github.com/ayu-theme/ayu-vim)
