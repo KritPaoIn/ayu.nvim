@@ -37,7 +37,12 @@ M.options = {
 function M.setup(opts)
     local invalid_opts = get_invalid_options(opts)
     if #invalid_opts <= 0 then
-        highlights.extend(opts.extend)
+        if opts.mode ~= nil then
+            M.options = opts.mode
+        end
+        if opts.extend ~= nil then
+            highlights.extend(opts.extend)
+        end
     else
         local st = "Invalid option(s) for ayu.nvim setup: "
         local n = #invalid_opts
