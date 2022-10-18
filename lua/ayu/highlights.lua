@@ -149,7 +149,7 @@ local function get_highlight_definitions(mode)
 		BufferInactive = { fg = p.gray, bg = p.bg_dimmed },
 		BufferInactiveSign = { fg = p.bg_dimmed, bg = p.bg_dimmed },
 		BufferTabPageFill = { fg = p.bg_dimmed, bg = p.bg_dimmed },
-		BufferVisibleSign = { fg = p.bg_dimmed, bg = p.bg_dimmed },
+		BufferVisibleSign = { fg = p.bg, bg = p.bg },
 		BufferVisibleMod = { fg = p.yellow_dimmed, bg = p.bg },
 		BufferInactiveMod = { fg = p.yellow_dimmed, bg = p.bg_dimmed },
 	}

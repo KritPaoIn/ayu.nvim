@@ -31,7 +31,7 @@ return {
         panel = "#FFFFFF",
         guide = "#D9D8D7",
         line = "#F3F3F3",
-        selection = "#253340",
+        selection = "#F0EEE4",
 
 		diff_add = "#86B300",
 		diff_change = "#399EE6",
