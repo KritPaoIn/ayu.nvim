@@ -50,6 +50,7 @@ function M.setup(opts)
 		for i, invalid_opt in ipairs(invalid_opts) do
 			st = st .. invalid_opt .. i == n and "." or ", "
 		end
+        error(st)
 	end
 end
 
