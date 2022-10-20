@@ -70,6 +70,7 @@ function M.colorscheme()
 	vim.o.background = mode
 	vim.o.termguicolors = true
 	vim.g.colors_name = "ayu"
+	vim.g.ayucolor = mode
 
 	highlights.setup(mode)
 	terminal.setup(mode)

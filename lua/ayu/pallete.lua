@@ -13,7 +13,7 @@ return {
 		cyan = "#4CBF99",
 		white = "#D1D1D1",
         gray = "Gray",
-		border = "#393B41",
+		border = "#BDBDBD",
 
         comment = "#ABB0B6",
         markup = "#F07178",
@@ -42,7 +42,7 @@ return {
 	dark = {
 		fg = "#E6E1CF",
         fg_idle = "#3E4B59",
-        bg = "#0D1017",
+        bg = "#0A0E14",
         bg_dimmed = "#000108",
 		black = "#000000",
 		red = "#F07178",

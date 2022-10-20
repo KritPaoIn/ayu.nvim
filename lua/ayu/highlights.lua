@@ -32,7 +32,7 @@ local function get_highlight_definitions(mode)
 	}
 
 	hl.common = {
-		Normal = { fg = p.fg, bg = p.bg },
+		Normal = { fg = p.fg, bg = p.none },
 		ColorColumn = { bg = p.line },
 
 		CursorColumn = { bg = p.line },
@@ -44,7 +44,7 @@ local function get_highlight_definitions(mode)
 		DiffAdd = { fg = p.diff_add, bg = p.panel },
 		DiffChange = { fg = p.diff_change, bg = p.panel },
 		DiffDelete = { fg = p.diff_delete, bg = p.panel },
-		ErrorMsg = { fg = p.fg, bg = p.error },
+		ErrorMsg = { fg = p.error, bg = p.none },
 		Folded = { fg = p.fg_idle, bg = p.panel },
 		FoldColumn = { bg = p.panel },
 		SignColumn = { bg = p.panel },
@@ -122,7 +122,7 @@ local function get_highlight_definitions(mode)
 
 		Ignore = { fg = p.none, bg = p.none },
 
-		Error = { fg = p.fg, bg = p.error },
+		Error = { fg = p.error, bg = p.none },
 
 		Todo = hl.predef.Markup,
 
