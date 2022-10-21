@@ -144,13 +144,13 @@ local function get_highlight_definitions(style)
 		BufferCurrent = hl.common.Normal,
 		BufferCurrentTarget = hl.common.Normal,
 		BufferCurrentSign = hl.common.Normal,
-		BufferCurrentMod = { fg = p.yellow, bg = p.bg },
-		BufferVisible = { fg = p.gray, bg = p.bg },
+		BufferCurrentMod = { fg = p.yellow, bg = p.none },
+		BufferVisible = { fg = p.gray, bg = p.none },
+		BufferVisibleSign = hl.common.Normal,
+		BufferVisibleMod = { fg = p.yellow_dimmed, bg = p.none },
 		BufferInactive = { fg = p.gray, bg = p.bg_dimmed },
 		BufferInactiveSign = { fg = p.bg_dimmed, bg = p.bg_dimmed },
 		BufferTabPageFill = { fg = p.bg_dimmed, bg = p.bg_dimmed },
-		BufferVisibleSign = { fg = p.bg, bg = p.bg },
-		BufferVisibleMod = { fg = p.yellow_dimmed, bg = p.bg },
 		BufferInactiveMod = { fg = p.yellow_dimmed, bg = p.bg_dimmed },
 	}
 
