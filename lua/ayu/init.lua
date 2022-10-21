@@ -4,13 +4,13 @@ local pallete = require("ayu.pallete")
 
 local M = {}
 
-local function validate_mode(mode)
-	local valid_modes = {}
+local function validate_style(style)
+	local valid_styles = {}
 	for key, _ in pairs(pallete) do
-		valid_modes[#valid_modes + 1] = key
+		valid_styles[#valid_styles + 1] = key
 	end
-	for _, v in ipairs(valid_modes) do
-		if mode == v then
+	for _, v in ipairs(valid_styles) do
+		if style == v then
 			return true
 		end
 	end
@@ -28,7 +28,7 @@ local function get_invalid_options(opts)
 end
 
 M.options = {
-	mode = "dark", -- "dark" | "light"
+	style = "dark", -- "dark" | "light"
 	extend = {
 		-- ExampleHighlight = { fg = "#FFFFFF", bg = "#000000" },
 		-- ExampleFunctionHighlight = function() return { fg = "#FFFFFF", bg = "#000000" } end,
@@ -38,8 +38,8 @@ M.options = {
 function M.setup(opts)
 	local invalid_opts = get_invalid_options(opts)
 	if #invalid_opts <= 0 then
-		if opts.mode ~= nil then
-			M.options.mode = opts.mode
+		if opts.style ~= nil then
+			M.options.style = opts.style
 		end
 		if opts.extend ~= nil then
 			highlights.extend(opts.extend)
@@ -60,21 +60,21 @@ function M.colorscheme()
 		vim.cmd("syntax reset")
 	end
 
-	local mode = M.options.mode
-	if not validate_mode(mode) then
-		if mode ~= nil then
-			print(string.format("Invalid g:ayucolor: %s, defaulting to dark", mode))
+	local style = M.options.style
+	if not validate_style(style) then
+		if style ~= nil then
+			print(string.format("Invalid g:ayucolor: %s, defaulting to dark", style))
 		end
-		mode = "dark"
+		style = "dark"
 	end
 
-	vim.o.background = mode
+	vim.o.background = style
 	vim.o.termguicolors = true
 	vim.g.colors_name = "ayu"
-	vim.g.ayucolor = mode
+	vim.g.ayucolor = style
 
-	highlights.setup(mode)
-	terminal.setup(mode)
+	highlights.setup(style)
+	terminal.setup(style)
 end
 
 return M

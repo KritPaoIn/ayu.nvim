@@ -14,8 +14,8 @@ local function load_highlights(highlights)
     end
 end
 
-local function get_highlight_definitions(mode)
-	local p = pallete[mode]
+local function get_highlight_definitions(style)
+	local p = pallete[style]
 	local hl = { langs = {}, plugins = {}, extend = {} }
 
 	hl.predef = {
