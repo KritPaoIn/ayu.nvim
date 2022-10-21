@@ -73,6 +73,7 @@ return {
         guide = "#2D3640",
         line = "#131721",
         selection = "#253340",
+        search = "#584413",
 
 		diff_add = "#C2D94C",
 		diff_change = "#59C2FF",
