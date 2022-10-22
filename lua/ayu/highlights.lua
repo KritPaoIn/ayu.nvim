@@ -74,6 +74,11 @@ local function get_highlight_definitions(style)
         Title = { fg = p.keyword },
         Visual = { bg = p.selection },
 
+        DiagnosticError = { fg = p.error },
+        DiagnosticWarn = { fg = p.warn },
+        DiagnosticInfo = { fg = p.info },
+        DiagnosticHint = { fg = p.hint },
+
         WarningMsg = { fg = p.error },
         EndOfBuffer = { fg = p.bg },
     }
@@ -183,6 +188,7 @@ local function get_highlight_definitions(style)
     }
 
     hl.plugins.nvim_tree = {
+        -- NvimTreeFolderIcon = { fg = p.func },
         NvimTreeFolderName = hl.common.Normal,
         NvimTreeOpenedFolderName = hl.common.Normal,
     }
@@ -199,15 +205,42 @@ local function get_highlight_definitions(style)
         HighlightUrl = { fg = "#A37ACC", underline = true },
     }
 
+    hl.plugins.notify = {
+        NotifyERRORBorder = { fg = p.error },
+        NotifyWARNBorder = { fg = p.warn },
+        NotifyINFOBorder = { fg = p.info },
+        NotifyDEBUGBorder = { fg = p.hint },
+        NotifyTRACEBorder = { fg = p.hint },
+        NotifyERRORIcon = { fg = p.error },
+        NotifyWARNIcon = { fg = p.warn },
+        NotifyINFOIcon = { fg = p.info },
+        NotifyDEBUGIcon = { fg = p.hint },
+        NotifyTRACEIcon = { fg = p.hint },
+        NotifyERRORTitle = { fg = p.error, bold = true },
+        NotifyWARNTitle = { fg = p.warn, bold = true },
+        NotifyINFOTitle = { fg = p.info, bold = true },
+        NotifyDEBUGTitle = { fg = p.hint, bold = true },
+        NotifyTRACETitle = { fg = p.hint, bold = true },
+        NotifyERRORBody = { fg = p.error },
+        NotifyWARNBody = { fg = p.warn },
+        NotifyINFOBody = { fg = p.info },
+        NotifyDEBUGBody = { fg = p.hint },
+        NotifyTRACEBody = { fg = p.hint },
+    }
+
     return hl
 end
 
+local extended_highlights = {}
+
 function M.extend(highlights)
-    load_highlights(highlights)
+    for group_name, group_settings in pairs(highlights) do
+        extended_highlights[group_name] = group_settings
+    end
 end
 
-function M.setup(mode)
-    local hl = get_highlight_definitions(mode)
+function M.setup(style)
+    local hl = get_highlight_definitions(style)
     load_highlights(hl.predef)
     load_highlights(hl.common)
     load_highlights(hl.syntax)
@@ -217,6 +250,7 @@ function M.setup(mode)
     for _, group in pairs(hl.plugins) do
         load_highlights(group)
     end
+    load_highlights(extended_highlights)
 end
 
 return M

@@ -8,6 +8,7 @@ return {
 		red = "#F07171",
 		green = "#86B300",
 		yellow = "#F2AE49",
+        yellow_dimmed = "#CC8C49",
 		blue = "#399EE6",
 		magenta = "#A37ACC",
 		cyan = "#4CBF99",
@@ -26,12 +27,17 @@ return {
         special = "#E6B673",
         keyword = "#FF7733",
 
-        error = "#FF3333",
+        error = "#FF0000",
+        warn = "#FFA500",
+        info = "#00B4FF",
+        hint = "#00B4FF",
+
         accent = "#FF6A00",
         panel = "#FFFFFF",
         guide = "#D9D8D7",
         line = "#F3F3F3",
         selection = "#F0EEE4",
+        search = "#FFF7BB",
 
 		diff_add = "#86B300",
 		diff_change = "#399EE6",
@@ -67,7 +73,11 @@ return {
         special = "#E6B673",
         keyword = "#FF7733",
 
-        error = "#FF3333",
+        error = "#FF0000",
+        warn = "#FFA500",
+        info = "#00B4FF",
+        hint = "#00B4FF",
+
         accent = "#F29718",
         panel = "#14191F",
         guide = "#2D3640",
