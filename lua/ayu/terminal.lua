@@ -5,6 +5,8 @@ local M = {}
 function M.setup(mode)
     local p = pallete[mode]
 
+    vim.g.terminal_background = p.bg
+
     vim.g.terminal_color_0 = p.black
     vim.g.terminal_color_8 = p.black
 

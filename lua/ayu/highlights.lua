@@ -78,6 +78,8 @@ local function get_highlight_definitions(style)
         DiagnosticWarn = { fg = p.warn },
         DiagnosticInfo = { fg = p.info },
         DiagnosticHint = { fg = p.hint },
+        DiagnosticVirtualTextInfo = { fg = p.guide },
+        DiagnosticVirtualTextHint = { fg = p.guide },
 
         WarningMsg = { fg = p.error },
         EndOfBuffer = { fg = p.bg },
@@ -193,8 +195,13 @@ local function get_highlight_definitions(style)
         NvimTreeOpenedFolderName = hl.common.Normal,
     }
 
+    hl.plugins.nvim_cmp = {
+        CmpItemMenu = { fg = p.gray },
+    }
+
     hl.plugins.treesitter = {
         ["@tag"] = hl.predef.Keyword,
+        ["@namespace"] = hl.predef.Special,
         ["@field"] = hl.predef.Tag,
         ["@tag.delimiter"] = hl.predef.Special,
         ["@tag.attribute"] = hl.predef.Tag,
@@ -241,7 +248,6 @@ end
 
 function M.setup(style)
     local hl = get_highlight_definitions(style)
-    load_highlights(hl.predef)
     load_highlights(hl.common)
     load_highlights(hl.syntax)
     for _, group in pairs(hl.langs) do
