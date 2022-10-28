@@ -48,7 +48,7 @@ local function get_highlight_definitions(style)
         ErrorMsg = { fg = p.error, bg = p.none },
         Folded = { fg = p.fg_idle, bg = p.panel },
         FoldColumn = { bg = p.panel },
-        SignColumn = { bg = p.panel },
+        SignColumn = { bg = p.none },
         VertSplit = { fg = p.border },
         FloatBorder = { fg = p.border },
 
