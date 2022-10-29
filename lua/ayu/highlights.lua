@@ -246,8 +246,10 @@ end
 local extended_highlights = {}
 
 function M.extend(highlights)
-    for group_name, group_settings in pairs(highlights) do
-        extended_highlights[group_name] = group_settings
+    if highlights ~= nil then
+        for group_name, group_settings in pairs(highlights) do
+            extended_highlights[group_name] = group_settings
+        end
     end
 end
 
