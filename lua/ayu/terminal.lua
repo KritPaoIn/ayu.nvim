@@ -1,9 +1,11 @@
 local pallete = require("ayu.pallete")
+local config = require("ayu.config")
 
 local M = {}
 
-function M.setup(mode)
-    local p = pallete[mode]
+function M.setup()
+    local style = config.options.style
+    local p = pallete[style]
 
     vim.g.terminal_background = p.bg
 

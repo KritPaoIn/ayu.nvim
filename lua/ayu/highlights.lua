@@ -1,4 +1,5 @@
 local pallete = require("ayu.pallete")
+local config = require("ayu.config")
 
 local M = {}
 
@@ -14,8 +15,11 @@ local function load_highlights(highlights)
     end
 end
 
-local function get_highlight_definitions(style)
+local function get_highlight_definitions()
+    local style = config.options.style
+    local transparent = config.options.transparent
     local p = pallete[style]
+    local bg = transparent and p.none or p.bg
     local hl = { langs = {}, plugins = {}, extend = {} }
 
     hl.predef = {
@@ -33,11 +37,12 @@ local function get_highlight_definitions(style)
     }
 
     hl.common = {
-        Normal = { fg = p.fg, bg = p.none },
+        Normal = { fg = p.fg, bg = bg },
         ColorColumn = { bg = p.line },
 
         CursorColumn = { bg = p.line },
         CursorLine = { bg = p.line },
+        CursorLineSign = { bg = p.line },
         CursorLineNr = { fg = p.accent, bg = p.line },
         LineNr = { fg = p.guide },
 
@@ -45,10 +50,10 @@ local function get_highlight_definitions(style)
         DiffAdd = { fg = p.diff_add, bg = p.panel },
         DiffChange = { fg = p.diff_change, bg = p.panel },
         DiffDelete = { fg = p.diff_delete, bg = p.panel },
-        ErrorMsg = { fg = p.error, bg = p.none },
+        ErrorMsg = { fg = p.error, bg = bg },
         Folded = { fg = p.fg_idle, bg = p.panel },
         FoldColumn = { bg = p.panel },
-        SignColumn = { bg = p.none },
+        SignColumn = { bg = bg },
         VertSplit = { fg = p.border },
         FloatBorder = { fg = p.border },
 
@@ -131,7 +136,7 @@ local function get_highlight_definitions(style)
 
         Ignore = { fg = p.none, bg = p.none },
 
-        Error = { fg = p.error, bg = p.none },
+        Error = { fg = p.error, bg = bg },
 
         Todo = hl.predef.Markup,
 
@@ -153,10 +158,10 @@ local function get_highlight_definitions(style)
         BufferCurrent = hl.common.Normal,
         BufferCurrentTarget = hl.common.Normal,
         BufferCurrentSign = hl.common.Normal,
-        BufferCurrentMod = { fg = p.yellow, bg = p.none },
-        BufferVisible = { fg = p.gray, bg = p.none },
+        BufferCurrentMod = { fg = p.yellow, bg = bg },
+        BufferVisible = { fg = p.gray, bg = bg },
         BufferVisibleSign = hl.common.Normal,
-        BufferVisibleMod = { fg = p.yellow_dimmed, bg = p.none },
+        BufferVisibleMod = { fg = p.yellow_dimmed, bg = bg },
         BufferInactive = { fg = p.gray, bg = p.bg_dimmed },
         BufferInactiveSign = { fg = p.bg_dimmed, bg = p.bg_dimmed },
         BufferTabPageFill = { fg = p.bg_dimmed, bg = p.bg_dimmed },
@@ -246,8 +251,8 @@ function M.extend(highlights)
     end
 end
 
-function M.setup(style)
-    local hl = get_highlight_definitions(style)
+function M.setup()
+    local hl = get_highlight_definitions()
     load_highlights(hl.common)
     load_highlights(hl.syntax)
     for _, group in pairs(hl.langs) do

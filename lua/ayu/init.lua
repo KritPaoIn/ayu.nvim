@@ -1,6 +1,7 @@
 local highlights = require("ayu.highlights")
 local terminal = require("ayu.terminal")
 local pallete = require("ayu.pallete")
+local config = require("ayu.config")
 
 local M = {}
 
@@ -20,26 +21,18 @@ end
 local function get_invalid_options(opts)
 	local invalid_opts = {}
 	for opt, _ in pairs(opts) do
-		if M.options[opt] == nil then
+		if config.options[opt] == nil then
 			invalid_opts[#invalid_opts + 1] = opt
 		end
 	end
 	return invalid_opts
 end
 
-M.options = {
-	style = "dark", -- "dark" | "light"
-	extend = {
-		-- ExampleHighlight = { fg = "#FFFFFF", bg = "#000000" },
-		-- ExampleFunctionHighlight = function() return { fg = "#FFFFFF", bg = "#000000" } end,
-	},
-}
-
 function M.setup(opts)
 	local invalid_opts = get_invalid_options(opts)
 	if #invalid_opts <= 0 then
 		if opts.style ~= nil then
-			M.options.style = opts.style
+			config.options.style = opts.style
 		end
 		if opts.extend ~= nil then
 			highlights.extend(opts.extend)
@@ -60,7 +53,7 @@ function M.colorscheme()
 		vim.cmd("syntax reset")
 	end
 
-	local style = M.options.style
+	local style = config.options.style
 	if not validate_style(style) then
 		if style ~= nil then
 			print(string.format("Invalid g:ayucolor: %s, defaulting to dark", style))
@@ -73,8 +66,8 @@ function M.colorscheme()
 	vim.g.colors_name = "ayu"
 	vim.g.ayucolor = style
 
-	highlights.setup(style)
-	terminal.setup(style)
+	highlights.setup()
+	terminal.setup()
 end
 
 return M
