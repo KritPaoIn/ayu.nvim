@@ -13,7 +13,7 @@ return {
 		magenta = "#A37ACC",
 		cyan = "#4CBF99",
 		white = "#D1D1D1",
-        gray = "Gray",
+        gray = "#A6ACB4",
 		border = "#BDBDBD",
 
         comment = "#ABB0B6",
