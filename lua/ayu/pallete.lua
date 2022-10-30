@@ -34,7 +34,7 @@ return {
 
         accent = "#FF6A00",
         panel = "#FFFFFF",
-        guide = "#D9D8D7",
+        guide = "#ABB0B6",
         line = "#F3F3F3",
         selection = "#F0EEE4",
         search = "#FFF7BB",
