@@ -26,6 +26,7 @@ return {
         func = "#F29718",
         special = "#E6B673",
         keyword = "#FF7733",
+        builtin = "#FF3434",
 
         error = "#FF0000",
         warn = "#FFA500",
@@ -72,6 +73,7 @@ return {
         func = "#FFB454",
         special = "#E6B673",
         keyword = "#FF7733",
+        builtin = "#FF3434",
 
         error = "#FF0000",
         warn = "#FFA500",

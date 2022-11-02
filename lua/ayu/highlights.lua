@@ -34,6 +34,7 @@ local function get_highlight_definitions()
         Tag = { fg = p.tag },
         Markup = { fg = p.markup },
         Guide = { fg = p.guide },
+        Builtin = { fg = p.builtin },
     }
 
     hl.common = {
@@ -169,20 +170,13 @@ local function get_highlight_definitions()
     }
 
     hl.plugins.lspsaga = {
-        LspSagaDiagnosticBorder = hl.common.Normal,
-        LspSagaCodeActionBorder = hl.common.Normal,
-        LspSagaFloatWinBorder = hl.common.Normal,
-        LspSagaRenameBorder = hl.common.Normal,
-        LspSagaSignatureHelpBorder = hl.common.Normal,
-        LspSagaDiagBorder = hl.common.Normal,
-        LspSagaDefPreviewBorder = hl.common.Normal,
-        LspSagaDiagnosticTruncateLine = hl.common.Normal,
-        LspSagaCodeActionTruncateLine = hl.common.Normal,
-        LspSagaFloatWinTruncateLine = hl.common.Normal,
-        LspSagaRenameTruncateLine = hl.common.Normal,
-        LspSagaSignatureHelpTruncateLine = hl.common.Normal,
-        LspSagaDiagTruncateLine = hl.common.Normal,
-        LspSagaDefPreviewTruncateLine = hl.common.Normal,
+        LspSagaCodeActionBorder = hl.common.FloatBorder,
+        LspSagaDiagnosticBorder = hl.common.FloatBorder,
+        LspSagaRenameBorder = hl.common.FloatBorder,
+        LspSagaHoverBorder = hl.common.FloatBorder,
+        LspSagaSignatureHelpBorder = hl.common.FloatBorder,
+        LspSagaDiagnosticTruncateLine = hl.common.FloatBorder,
+        LspSagaCodeActionTruncateLine = hl.common.FloatBorder,
     }
 
     hl.plugins.vim_swap = {
