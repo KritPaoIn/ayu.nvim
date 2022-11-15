@@ -177,6 +177,10 @@ local function get_highlight_definitions()
         LspSagaSignatureHelpBorder = hl.common.FloatBorder,
         LspSagaDiagnosticTruncateLine = hl.common.FloatBorder,
         LspSagaCodeActionTruncateLine = hl.common.FloatBorder,
+        LspSagaBorderTitle = hl.common.Normal,
+        LspSagaDiagnosticHeader = { fg = p.none, bold = true },
+        LspSagaLightBulb = { fg = p.warn },
+        LspSagaCodeActionContent = hl.common.Normal,
     }
 
     hl.plugins.vim_swap = {
@@ -196,6 +200,18 @@ local function get_highlight_definitions()
 
     hl.plugins.nvim_cmp = {
         CmpItemMenu = { fg = p.gray },
+        CmpItemAbbrMatch = { fg = p.accent2 },
+        CmpItemAbbrMatchFuzzy = { fg = p.accent2 },
+        CmpItemKindVariable = { fg = p.cyan },
+        CmpItemKindInterface = { fg = p.cyan },
+        CmpItemKindText = hl.predef.String,
+        CmpItemKindFunction = hl.predef.Function,
+        CmpItemKindMethod = hl.predef.Function,
+        CmpItemKindKeyword = hl.predef.Keyword,
+        CmpItemKindEnum = hl.predef.Keyword,
+        CmpItemKindProperty = hl.predef.Tag,
+        CmpItemKindField = hl.predef.Tag,
+        CmpItemKindUnit = hl.predef.Special,
     }
 
     hl.plugins.treesitter = {
