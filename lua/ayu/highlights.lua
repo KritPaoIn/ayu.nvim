@@ -193,13 +193,14 @@ local function get_highlight_definitions()
     }
 
     hl.plugins.nvim_tree = {
-        -- NvimTreeFolderIcon = { fg = p.func },
-        NvimTreeFolderName = hl.common.Normal,
-        NvimTreeOpenedFolderName = hl.common.Normal,
+        NvimTreeFolderName = { fg = p.fg, bg = p.none },
+        NvimTreeOpenedFolderName = { fg = p.fg, bg = p.none },
+        NvimTreeOpenedFolderIcon = { fg = p.opened_folder, bg = p.none },
+        -- NvimTreeFolderIcon = { fg = p.accent, bg = p.none },
     }
 
     hl.plugins.nvim_cmp = {
-        CmpItemMenu = { fg = p.gray },
+        CmpItemMenu = { fg = p.guide },
         CmpItemAbbrMatch = { fg = p.accent2 },
         CmpItemAbbrMatchFuzzy = { fg = p.accent2 },
         CmpItemKindVariable = { fg = p.cyan },

@@ -45,6 +45,9 @@ return {
         diff_change = "#399EE6",
         diff_delete = "#F07171",
 
+        folder = "#C1C5C8",
+        opened_folder = "#FF8F40",
+
         none = "NONE",
     },
     dark = {
@@ -92,6 +95,9 @@ return {
         diff_add = "#C2D94C",
         diff_change = "#59C2FF",
         diff_delete = "#F07178",
+
+        folder = "#47515D",
+        opened_folder = "#FFCC66",
 
         none = "NONE",
     },
