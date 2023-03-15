@@ -44,6 +44,9 @@ return {
         diff_add = "#86B300",
         diff_change = "#399EE6",
         diff_delete = "#F07171",
+        diff_add_bg = "#375200",
+        diff_change_bg = "#375200",
+        diff_delete_bg = "#510723",
 
         folder = "#C1C5C8",
         opened_folder = "#FF8F40",
@@ -95,6 +98,9 @@ return {
         diff_add = "#C2D94C",
         diff_change = "#59C2FF",
         diff_delete = "#F07178",
+        diff_add_bg = "#375200",
+        diff_change_bg = "#375200",
+        diff_delete_bg = "#510723",
 
         folder = "#47515D",
         opened_folder = "#FFCC66",

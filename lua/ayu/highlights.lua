@@ -158,6 +158,9 @@ local function get_highlight_definitions()
         GitSignsAdd = { fg = p.diff_add },
         GitSignsChange = { fg = p.diff_change },
         GitSignsDelete = { fg = p.diff_delete },
+        GitSignsAddLn = { bg = p.diff_add_bg },
+        GitSignsChangeLn = { bg = p.diff_change_bg },
+        GitSignsDeleteLn = { bg = p.diff_delete_bg },
     }
 
     hl.plugins.barbar = {
