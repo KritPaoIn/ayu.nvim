@@ -44,8 +44,8 @@ local function get_highlight_definitions()
         CursorColumn = { bg = p.line },
         CursorLine = { bg = p.line },
         CursorLineSign = { bg = p.line },
-        CursorLineNr = { fg = p.accent, bg = p.line },
-        LineNr = { fg = p.guide },
+        CursorLineNr = { fg = p.linenr_cursor, bg = p.line },
+        LineNr = { fg = p.linenr },
 
         Directory = { fg = p.fg_idle },
         DiffAdd = { fg = p.diff_add, bg = p.panel },
@@ -84,8 +84,10 @@ local function get_highlight_definitions()
         DiagnosticWarn = { fg = p.warn },
         DiagnosticInfo = { fg = p.info },
         DiagnosticHint = { fg = p.hint },
-        DiagnosticVirtualTextInfo = { fg = p.guide },
-        DiagnosticVirtualTextHint = { fg = p.guide },
+        DiagnosticVirtualTextError = { fg = p.error, bg = p.error_bg },
+        DiagnosticVirtualTextWarn = { fg = p.warn, bg = p.warn_bg },
+        DiagnosticVirtualTextInfo = { fg = p.warn, bg = p.warn_bg },
+        DiagnosticVirtualTextHint = { fg = p.warn, bg = p.warn_bg },
 
         WarningMsg = { fg = p.error },
         EndOfBuffer = { fg = p.bg },
@@ -179,6 +181,10 @@ local function get_highlight_definitions()
 
     hl.plugins.lspsaga = {
         SagaLightBulb = { fg = p.warn },
+        SagaWinbarWord = { fg = p.linenr },
+        SagaWinbarSep = { fg = p.linenr },
+        SagaWinbarFolderName = { fg = p.linenr },
+        SagaWinbarFileName = { fg = p.linenr },
     }
 
     hl.plugins.vim_swap = {

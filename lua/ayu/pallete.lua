@@ -28,8 +28,10 @@ return {
         keyword = "#FF7733",
         builtin = "#FF3434",
 
-        error = "#FF0000",
-        warn = "#FFA500",
+        error = "#E45454",
+        error_bg = "#EFDDDF",
+        warn = "#FF9330",
+        warn_bg = "#FCEFE3",
         info = "#00B4FF",
         hint = "#00B4FF",
 
@@ -38,6 +40,8 @@ return {
         panel = "#FFFFFF",
         guide = "#ABB0B6",
         line = "#F3F3F3",
+        linenr = "#CFD1D4",
+        linenr_cursor = "#636A75",
         selection = "#F0EEE4",
         search = "#FFF7BB",
 
@@ -82,8 +86,10 @@ return {
         keyword = "#FF7733",
         builtin = "#FF3434",
 
-        error = "#FF0000",
-        warn = "#FFA500",
+        error = "#FF6464",
+        error_bg = "#25171E",
+        warn = "#FA973B",
+        warn_bg = "#271F1C",
         info = "#00B4FF",
         hint = "#00B4FF",
 
@@ -92,6 +98,8 @@ return {
         panel = "#14191F",
         guide = "#2D3640",
         line = "#131721",
+        linenr = "#474B56",
+        linenr_cursor = "#636A75",
         selection = "#253340",
         search = "#584413",
 
