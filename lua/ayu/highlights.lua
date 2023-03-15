@@ -154,6 +154,11 @@ local function get_highlight_definitions()
         GitGutterChange = { fg = p.diff_change },
         GitGutterDelete = { fg = p.diff_delete },
     }
+    hl.plugins.vgit = {
+        GitSignsAdd = { fg = p.diff_add },
+        GitSignsChange = { fg = p.diff_change },
+        GitSignsDelete = { fg = p.diff_delete },
+    }
 
     hl.plugins.barbar = {
         BufferCurrent = hl.common.Normal,
@@ -170,17 +175,7 @@ local function get_highlight_definitions()
     }
 
     hl.plugins.lspsaga = {
-        LspSagaCodeActionBorder = hl.common.FloatBorder,
-        LspSagaDiagnosticBorder = hl.common.FloatBorder,
-        LspSagaRenameBorder = hl.common.FloatBorder,
-        LspSagaHoverBorder = hl.common.FloatBorder,
-        LspSagaSignatureHelpBorder = hl.common.FloatBorder,
-        LspSagaDiagnosticTruncateLine = hl.common.FloatBorder,
-        LspSagaCodeActionTruncateLine = hl.common.FloatBorder,
-        LspSagaBorderTitle = hl.common.Normal,
-        LspSagaDiagnosticHeader = { fg = p.none, bold = true },
-        LspSagaLightBulb = { fg = p.warn },
-        LspSagaCodeActionContent = hl.common.Normal,
+        SagaLightBulb = { fg = p.warn },
     }
 
     hl.plugins.vim_swap = {
