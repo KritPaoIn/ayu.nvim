@@ -162,8 +162,10 @@ local function get_highlight_definitions()
         GitSignsChange = { fg = p.diff_change },
         GitSignsDelete = { fg = p.diff_delete },
         GitSignsAddLn = { bg = p.diff_add_bg },
+        GitWordAdd = { bg = p.diff_add_bg_accent },
         GitSignsChangeLn = { bg = p.diff_change_bg },
         GitSignsDeleteLn = { bg = p.diff_delete_bg },
+        GitWordDelete = { bg = p.diff_delete_bg_accent },
         GitHeader = { fg = p.none, bg = p.none },
         GitAppBar = { fg = p.none, bg = p.bg_dimmed },
     }

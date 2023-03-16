@@ -48,7 +48,9 @@ return {
         diff_change = "#399EE6",
         diff_delete = "#F07171",
         diff_add_bg = "#D0F785",
+        diff_add_bg_accent = "#B5E75A",
         diff_delete_bg = "#FAD4D4",
+        diff_delete_bg_accent = "#FBB5B2",
 
         folder = "#C1C5C8",
         opened_folder = "#FF8F40",
@@ -104,7 +106,9 @@ return {
         diff_change = "#59C2FF",
         diff_delete = "#F07178",
         diff_add_bg = "#375200",
+        diff_add_bg_accent = "#537D04",
         diff_delete_bg = "#510723",
+        diff_delete_bg_accent = "#860734",
 
         folder = "#47515D",
         opened_folder = "#FFCC66",
