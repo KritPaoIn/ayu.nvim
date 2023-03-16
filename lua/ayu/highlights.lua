@@ -45,7 +45,7 @@ local function get_highlight_definitions()
         CursorLine = { bg = p.line },
         CursorLineSign = { bg = p.line },
         CursorLineNr = { fg = p.linenr_cursor, bg = p.line },
-        LineNr = { fg = p.linenr },
+        LineNr = { fg = p.guide },
 
         Directory = { fg = p.fg_idle },
         DiffAdd = { fg = p.diff_add, bg = p.panel },
@@ -67,6 +67,7 @@ local function get_highlight_definitions()
 
         Question = { fg = p.string },
         Search = { bg = p.search },
+        CurSearch = { bg = p.search },
         SpecialKey = { fg = p.selection },
         SpellCap = { fg = p.tag },
         SpellLocal = { fg = p.keyword },
@@ -163,6 +164,8 @@ local function get_highlight_definitions()
         GitSignsAddLn = { bg = p.diff_add_bg },
         GitSignsChangeLn = { bg = p.diff_change_bg },
         GitSignsDeleteLn = { bg = p.diff_delete_bg },
+        GitHeader = { fg = p.none, bg = p.none },
+        GitAppBar = { fg = p.none, bg = p.bg_dimmed },
     }
 
     hl.plugins.barbar = {
@@ -181,10 +184,10 @@ local function get_highlight_definitions()
 
     hl.plugins.lspsaga = {
         SagaLightBulb = { fg = p.warn },
-        SagaWinbarWord = { fg = p.linenr },
-        SagaWinbarSep = { fg = p.linenr },
-        SagaWinbarFolderName = { fg = p.linenr },
-        SagaWinbarFileName = { fg = p.linenr },
+        SagaWinbarWord = { fg = p.guide },
+        SagaWinbarSep = { fg = p.guide },
+        SagaWinbarFolderName = { fg = p.guide },
+        SagaWinbarFileName = { fg = p.guide },
     }
 
     hl.plugins.vim_swap = {
