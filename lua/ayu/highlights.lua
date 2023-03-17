@@ -87,11 +87,11 @@ local function get_highlight_definitions()
         DiagnosticHint = { fg = p.hint },
         DiagnosticVirtualTextError = { fg = p.error, bg = p.error_bg },
         DiagnosticVirtualTextWarn = { fg = p.warn, bg = p.warn_bg },
-        DiagnosticVirtualTextInfo = { fg = p.warn, bg = p.warn_bg },
-        DiagnosticVirtualTextHint = { fg = p.warn, bg = p.warn_bg },
+        DiagnosticVirtualTextInfo = { fg = p.info, bg = p.info_bg },
+        DiagnosticVirtualTextHint = { fg = p.hint, bg = p.hint_bg },
 
         WarningMsg = { fg = p.error },
-        EndOfBuffer = { fg = p.bg },
+        EndOfBuffer = { fg = bg },
     }
 
     hl.syntax = {
@@ -164,24 +164,38 @@ local function get_highlight_definitions()
         GitSignsAddLn = { bg = p.diff_add_bg },
         GitWordAdd = { bg = p.diff_add_bg_accent },
         GitSignsChangeLn = { bg = p.diff_change_bg },
-        GitSignsDeleteLn = { bg = p.diff_delete_bg },
-        GitWordDelete = { bg = p.diff_delete_bg_accent },
-        GitHeader = { fg = p.none, bg = p.none },
+        GitSignsDeleteLn = { fg = p.fg_normal, bg = p.diff_delete_bg },
+        GitWordDelete = { fg = p.fg_normal, bg = p.diff_delete_bg_accent },
+        GitHeader = { fg = p.none, bg = p.bg_secondary },
+        GitFooter = { fg = p.none, bg = p.bg_secondary },
         GitAppBar = { fg = p.none, bg = p.bg_dimmed },
     }
 
     hl.plugins.barbar = {
         BufferCurrent = hl.common.Normal,
         BufferCurrentTarget = hl.common.Normal,
-        BufferCurrentSign = hl.common.Normal,
-        BufferCurrentMod = { fg = p.yellow, bg = bg },
+        BufferCurrentSign = { fg = bg, bg = bg },
+        BufferCurrentMod = { fg = p.fg, bg = bg },
         BufferVisible = { fg = p.gray, bg = bg },
-        BufferVisibleSign = hl.common.Normal,
+        BufferVisibleSign = { fg = bg, bg = bg },
         BufferVisibleMod = { fg = p.yellow_dimmed, bg = bg },
         BufferInactive = { fg = p.gray, bg = p.bg_dimmed },
         BufferInactiveSign = { fg = p.bg_dimmed, bg = p.bg_dimmed },
         BufferTabPageFill = { fg = p.bg_dimmed, bg = p.bg_dimmed },
         BufferInactiveMod = { fg = p.yellow_dimmed, bg = p.bg_dimmed },
+
+        BufferCurrentERROR = { fg = p.error, bg = bg },
+        BufferCurrentWARN = { fg = p.warn, bg = bg },
+        BufferCurrentINFO = { fg = p.info, bg = bg },
+        BufferCurrentHINT = { fg = p.hint, bg = bg },
+        BufferVisibleERROR = { fg = p.error, bg = bg },
+        BufferVisibleWARN = { fg = p.warn, bg = bg },
+        BufferVisibleINFO = { fg = p.info, bg = bg },
+        BufferVisibleHINT = { fg = p.hint, bg = bg },
+        BufferInactiveERROR = { fg = p.gray, bg = p.bg_dimmed },
+        BufferInactiveWARN = { fg = p.gray, bg = p.bg_dimmed },
+        BufferInactiveINFO = { fg = p.gray, bg = p.bg_dimmed },
+        BufferInactiveHINT = { fg = p.gray, bg = p.bg_dimmed },
     }
 
     hl.plugins.lspsaga = {
