@@ -85,10 +85,14 @@ local function get_highlight_definitions()
         DiagnosticWarn = { fg = p.warn },
         DiagnosticInfo = { fg = p.info },
         DiagnosticHint = { fg = p.hint },
-        DiagnosticVirtualTextError = { fg = p.error, bg = p.error_bg },
-        DiagnosticVirtualTextWarn = { fg = p.warn, bg = p.warn_bg },
-        DiagnosticVirtualTextInfo = { fg = p.info, bg = p.info_bg },
-        DiagnosticVirtualTextHint = { fg = p.hint, bg = p.hint_bg },
+        DiagnosticVirtualTextError = { fg = p.error },
+        DiagnosticVirtualTextWarn = { fg = p.warn },
+        DiagnosticVirtualTextInfo = { fg = p.info },
+        DiagnosticVirtualTextHint = { fg = p.hint },
+        DiagnosticLineError = { bg = p.error_bg },
+        DiagnosticLineWarn = { bg = p.warn_bg },
+        DiagnosticLineInfo = { bg = p.info_bg },
+        DiagnosticLineHint = { bg = p.hint_bg },
 
         WarningMsg = { fg = p.error },
         EndOfBuffer = { fg = bg },
@@ -175,7 +179,7 @@ local function get_highlight_definitions()
         BufferCurrent = hl.common.Normal,
         BufferCurrentTarget = hl.common.Normal,
         BufferCurrentSign = { fg = bg, bg = bg },
-        BufferCurrentMod = { fg = p.fg, bg = bg },
+        BufferCurrentMod = { fg = p.yellow, bg = bg },
         BufferVisible = { fg = p.gray, bg = bg },
         BufferVisibleSign = { fg = bg, bg = bg },
         BufferVisibleMod = { fg = p.yellow_dimmed, bg = bg },
@@ -220,6 +224,16 @@ local function get_highlight_definitions()
         NvimTreeOpenedFolderName = { fg = p.fg, bg = p.none },
         NvimTreeOpenedFolderIcon = { fg = p.opened_folder, bg = p.none },
         -- NvimTreeFolderIcon = { fg = p.accent, bg = p.none },
+    }
+
+    hl.plugins.neo_tree = {
+        NeoTreeDirectoryIcon = { fg = p.folder, bg = p.none },
+        NeoTreeDirectoryName = { fg = p.fg, bg = p.none },
+        NeoTreeDotfile = { fg = "#31353D", bg = p.none },
+        NeoTreeGitUnstaged = { fg = p.gray, bg = p.none },
+        NeoTreeTabSeparatorInactive = { fg = p.bg_dimmed, bg = p.bg_dimmed },
+        NeoTreeTabInactive = { fg = p.gray, bg = p.bg_dimmed },
+        NeoTreeIndentMarker = { fg = p.guide, bg = p.none },
     }
 
     hl.plugins.nvim_cmp = {
@@ -272,6 +286,10 @@ local function get_highlight_definitions()
         NotifyINFOBody = { fg = p.info },
         NotifyDEBUGBody = { fg = p.hint },
         NotifyTRACEBody = { fg = p.hint },
+    }
+
+    hl.plugins.symbols_outline = {
+        SymbolsOutlineConnector = { fg = p.guide },
     }
 
     return hl

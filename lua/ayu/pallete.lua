@@ -117,7 +117,7 @@ return {
         diff_delete_bg = "#3F1418",
         diff_delete_bg_accent = "#551F24",
 
-        folder = "#47515D",
+        folder = "#90A3AE",
         opened_folder = "#FFCC66",
 
         none = "NONE",
