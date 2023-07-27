@@ -41,6 +41,7 @@ local function get_highlight_definitions()
         Normal = { fg = p.fg, bg = bg },
         ColorColumn = { bg = p.line },
 
+        Cursor = { fg = p.fg, bg = p.cursor },
         CursorColumn = { bg = p.line },
         CursorLine = { bg = p.line },
         CursorLineSign = { bg = p.line },
@@ -58,12 +59,13 @@ local function get_highlight_definitions()
         VertSplit = { fg = p.border },
         FloatBorder = { fg = p.border },
 
-        MatchParen = { fg = p.fg, bg = p.bg },
+        MatchParen = { fg = p.fg, bg = bg },
         ModeMsg = { fg = p.string },
         MoreMsg = { fg = p.string },
         NonText = { fg = p.guide },
-        Pmenu = { fg = p.fg, bg = p.bg },
-        PmenuSel = { fg = p.fg, bg = p.bg },
+        Pmenu = { fg = p.fg, bg = bg },
+        PmenuSel = { fg = p.tag, bg = p.line, bold = true },
+        PmenuSbar = { fg = p.none, bg = p.border },
 
         Question = { fg = p.string },
         Search = { bg = p.search },
@@ -75,7 +77,7 @@ local function get_highlight_definitions()
         SpellRare = { fg = p.regexp },
         StatusLine = { fg = p.fg, bg = p.panel },
         StatusLineNC = { fg = p.fg_idle, bg = p.panel },
-        WildMenu = { fg = p.bg, bg = p.markup },
+        WildMenu = { fg = bg, bg = p.markup },
         TabLine = { fg = p.fg, bg = p.panel },
 
         Title = { fg = p.keyword },
@@ -134,8 +136,6 @@ local function get_highlight_definitions()
         Structure = hl.predef.Special,
 
         Special = hl.predef.Special,
-        -- SpecialChar
-        -- Tag
         -- Delimiter
         -- SpecialComment
         -- Debug
@@ -186,6 +186,7 @@ local function get_highlight_definitions()
         BufferInactive = { fg = p.gray, bg = p.bg_dimmed },
         BufferInactiveSign = { fg = p.bg_dimmed, bg = p.bg_dimmed },
         BufferTabPageFill = { fg = p.bg_dimmed, bg = p.bg_dimmed },
+        BufferTabpages = { fg = bg, bg = p.tag, bold = true },
         BufferInactiveMod = { fg = p.yellow_dimmed, bg = p.bg_dimmed },
 
         BufferCurrentERROR = { fg = p.error, bg = bg },
@@ -259,6 +260,22 @@ local function get_highlight_definitions()
         ["@tag.delimiter"] = hl.predef.Special,
         ["@tag.attribute"] = hl.predef.Tag,
         ["@constructor"] = hl.predef.Function,
+    }
+
+    hl.plugins.telescope = {
+        TelescopeBorder = { fg = p.border, bg = p.none },
+        TelescopeTitle = { fg = p.keyword, bg = p.none, bold = true },
+        TelescopeSelection = { fg = p.none, bg = p.line, bold = true },
+        TelescopeMatching = { fg = p.keyword, bg = p.none },
+        TelescopeSelectionCaret = { fg = p.keyword, bold = true },
+    }
+
+    hl.plugins.noice = {
+        NoiceCmdlinePopupBorder = { fg = p.border, bg = p.none },
+        NoiceCmdlinePopupTitle = { fg = p.tag, bg = p.none, bold = true },
+        NoiceCmdlinePopupIcon = { fg = p.tag, bg = p.none, bold = true },
+        NoicePopupMenuSelected = { fg = p.none, bg = p.line, bold = true },
+        NoicePopupMenuMatch = { fg = p.keyword, bg = p.none },
     }
 
     hl.plugins.highlighturl = {

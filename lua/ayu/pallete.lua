@@ -46,6 +46,7 @@ return {
         linenr_cursor = "#636A75",
         selection = "#F0EEE4",
         search = "#FFF7BB",
+        cursor = "#F09D53",
 
         diff_add = "#86B300",
         diff_change = "#399EE6",
@@ -108,6 +109,7 @@ return {
         linenr_cursor = "#636A75",
         selection = "#253340",
         search = "#584413",
+        cursor = "#F6CD76",
 
         diff_add = "#C2D94C",
         diff_change = "#59C2FF",
