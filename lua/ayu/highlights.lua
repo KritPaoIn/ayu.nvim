@@ -186,21 +186,22 @@ local function get_highlight_definitions()
         BufferInactive = { fg = p.gray, bg = p.bg_dimmed },
         BufferInactiveSign = { fg = p.bg_dimmed, bg = p.bg_dimmed },
         BufferTabPageFill = { fg = p.bg_dimmed, bg = p.bg_dimmed },
-        BufferTabpages = { fg = bg, bg = p.tag, bold = true },
+        BufferTabpages = { fg = p.bg, bg = p.tag, bold = true },
+        BufferTabpagesSep = { fg = p.bg, bg = p.tag, bold = true },
         BufferInactiveMod = { fg = p.yellow_dimmed, bg = p.bg_dimmed },
 
         BufferCurrentERROR = { fg = p.error, bg = bg },
         BufferCurrentWARN = { fg = p.warn, bg = bg },
         BufferCurrentINFO = { fg = p.info, bg = bg },
         BufferCurrentHINT = { fg = p.hint, bg = bg },
-        BufferVisibleERROR = { fg = p.error, bg = bg },
-        BufferVisibleWARN = { fg = p.warn, bg = bg },
-        BufferVisibleINFO = { fg = p.info, bg = bg },
-        BufferVisibleHINT = { fg = p.hint, bg = bg },
-        BufferInactiveERROR = { fg = p.gray, bg = p.bg_dimmed },
-        BufferInactiveWARN = { fg = p.gray, bg = p.bg_dimmed },
-        BufferInactiveINFO = { fg = p.gray, bg = p.bg_dimmed },
-        BufferInactiveHINT = { fg = p.gray, bg = p.bg_dimmed },
+        BufferVisibleERROR = { fg = p.error_dimmed, bg = bg },
+        BufferVisibleWARN = { fg = p.warn_dimmed, bg = bg },
+        BufferVisibleINFO = { fg = p.info_dimmed, bg = bg },
+        BufferVisibleHINT = { fg = p.hint_dimmed, bg = bg },
+        BufferInactiveERROR = { fg = p.error_dimmed, bg = p.bg_dimmed },
+        BufferInactiveWARN = { fg = p.warn_dimmed, bg = p.bg_dimmed },
+        BufferInactiveINFO = { fg = p.info_dimmed, bg = p.bg_dimmed },
+        BufferInactiveHINT = { fg = p.hint_dimmed, bg = p.bg_dimmed },
     }
 
     hl.plugins.lspsaga = {
@@ -221,26 +222,25 @@ local function get_highlight_definitions()
     }
 
     hl.plugins.nvim_tree = {
-        NvimTreeFolderName = { fg = p.fg, bg = p.none },
-        NvimTreeOpenedFolderName = { fg = p.fg, bg = p.none },
-        NvimTreeOpenedFolderIcon = { fg = p.opened_folder, bg = p.none },
-        -- NvimTreeFolderIcon = { fg = p.accent, bg = p.none },
+        NvimTreeFolderName = { fg = p.fg, bg = bg },
+        NvimTreeOpenedFolderName = { fg = p.fg, bg = bg },
+        NvimTreeOpenedFolderIcon = { fg = p.opened_folder, bg = bg },
     }
 
     hl.plugins.neo_tree = {
-        NeoTreeDirectoryIcon = { fg = p.folder, bg = p.none },
-        NeoTreeDirectoryName = { fg = p.fg, bg = p.none },
-        NeoTreeDotfile = { fg = "#31353D", bg = p.none },
-        NeoTreeGitUnstaged = { fg = p.gray, bg = p.none },
+        NeoTreeDirectoryIcon = { fg = p.folder, bg = bg },
+        NeoTreeDirectoryName = { fg = p.fg, bg = bg },
+        NeoTreeDotfile = { fg = "#31353D", bg = bg },
+        NeoTreeGitUnstaged = { fg = p.gray, bg = bg },
         NeoTreeTabSeparatorInactive = { fg = p.bg_dimmed, bg = p.bg_dimmed },
         NeoTreeTabInactive = { fg = p.gray, bg = p.bg_dimmed },
-        NeoTreeIndentMarker = { fg = p.guide, bg = p.none },
+        NeoTreeIndentMarker = { fg = p.guide, bg = bg },
     }
 
     hl.plugins.nvim_cmp = {
         CmpItemMenu = { fg = p.guide },
-        CmpItemAbbrMatch = { fg = p.accent2 },
-        CmpItemAbbrMatchFuzzy = { fg = p.accent2 },
+        CmpItemAbbrMatch = { fg = p.keyword },
+        CmpItemAbbrMatchFuzzy = { fg = p.keyword },
         CmpItemKindVariable = { fg = p.cyan },
         CmpItemKindInterface = { fg = p.cyan },
         CmpItemKindText = hl.predef.String,
@@ -263,19 +263,19 @@ local function get_highlight_definitions()
     }
 
     hl.plugins.telescope = {
-        TelescopeBorder = { fg = p.border, bg = p.none },
-        TelescopeTitle = { fg = p.keyword, bg = p.none, bold = true },
+        TelescopeBorder = { fg = p.border, bg = bg },
+        TelescopeTitle = { fg = p.keyword, bg = bg, bold = true },
         TelescopeSelection = { fg = p.none, bg = p.line, bold = true },
-        TelescopeMatching = { fg = p.keyword, bg = p.none },
-        TelescopeSelectionCaret = { fg = p.keyword, bold = true },
+        TelescopeMatching = { fg = p.keyword, bg = bg },
+        TelescopeSelectionCaret = { fg = p.keyword, bg = p.line, bold = true },
     }
 
     hl.plugins.noice = {
-        NoiceCmdlinePopupBorder = { fg = p.border, bg = p.none },
-        NoiceCmdlinePopupTitle = { fg = p.tag, bg = p.none, bold = true },
-        NoiceCmdlinePopupIcon = { fg = p.tag, bg = p.none, bold = true },
+        NoiceCmdlinePopupBorder = { fg = p.border, bg = bg },
+        NoiceCmdlinePopupTitle = { fg = p.tag, bg = bg, bold = true },
+        NoiceCmdlinePopupIcon = { fg = p.tag, bg = bg, bold = true },
         NoicePopupMenuSelected = { fg = p.none, bg = p.line, bold = true },
-        NoicePopupMenuMatch = { fg = p.keyword, bg = p.none },
+        NoicePopupMenuMatch = { fg = p.keyword, bg = bg },
     }
 
     hl.plugins.highlighturl = {
@@ -307,6 +307,14 @@ local function get_highlight_definitions()
 
     hl.plugins.symbols_outline = {
         SymbolsOutlineConnector = { fg = p.guide },
+    }
+
+    hl.plugins.lspconfig = {
+        LspInfoBorder = { fg = p.border, bg = bg },
+    }
+
+    hl.plugins.null_ls = {
+        NullLsInfoBorder = { fg = p.border, bg = bg },
     }
 
     return hl
