@@ -17,6 +17,12 @@ return {
         gray = "#A6ACB4",
         border = "#BDBDBD",
 
+        tc = "#58C2FF",
+        bg1 = "#D3D3D3",
+        bg2 = "#F3F3F3",
+        fg1 = "#5C6773",
+        fg2 = "#828C99",
+
         comment = "#ABB0B6",
         markup = "#F07178",
         constant = "#A37ACC",
@@ -49,6 +55,7 @@ return {
         selection = "#F0EEE4",
         search = "#FFF7BB",
         cursor = "#F09D53",
+        mark = "#0266D6",
 
         diff_add = "#86B300",
         diff_change = "#399EE6",
@@ -82,6 +89,12 @@ return {
         gray = "Gray",
         border = "#393B41",
 
+        tc = "#37A3D9",
+        bg1 = "#14191F",
+        bg2 = "#0F141A",
+        fg1 = "#E6E1CF",
+        fg2 = "#3E4B59",
+
         comment = "#5C6773",
         markup = "#F07178",
         constant = "#FFEE99",
@@ -114,6 +127,8 @@ return {
         selection = "#253340",
         search = "#584413",
         cursor = "#F6CD76",
+        mark = "#0266D6",
+        mark_fg = "#C8C8C8",
 
         diff_add = "#C2D94C",
         diff_change = "#59C2FF",

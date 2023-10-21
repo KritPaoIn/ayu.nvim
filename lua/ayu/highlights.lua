@@ -186,8 +186,8 @@ local function get_highlight_definitions()
         BufferInactive = { fg = p.gray, bg = p.bg_dimmed },
         BufferInactiveSign = { fg = p.bg_dimmed, bg = p.bg_dimmed },
         BufferTabPageFill = { fg = p.bg_dimmed, bg = p.bg_dimmed },
-        BufferTabpages = { fg = p.bg, bg = p.tag, bold = true },
-        BufferTabpagesSep = { fg = p.bg, bg = p.tag, bold = true },
+        BufferTabpages = { fg = p.bg2, bg = p.tc, bold = true },
+        BufferTabpagesSep = { fg = p.bg2, bg = p.tc, bold = true },
         BufferInactiveMod = { fg = p.yellow_dimmed, bg = p.bg_dimmed },
 
         BufferCurrentERROR = { fg = p.error, bg = bg },
@@ -210,6 +210,7 @@ local function get_highlight_definitions()
         SagaWinbarSep = { fg = p.guide },
         SagaWinbarFolderName = { fg = p.guide },
         SagaWinbarFileName = { fg = p.guide },
+        Winbar = { fg = p.guide },
     }
 
     hl.plugins.vim_swap = {
@@ -315,6 +316,15 @@ local function get_highlight_definitions()
 
     hl.plugins.null_ls = {
         NullLsInfoBorder = { fg = p.border, bg = bg },
+    }
+
+    hl.plugins.neocomposer = {
+        ComposerNormal = { fg = p.fg, bg = p.bg },
+    }
+
+    hl.plugins.marks = {
+        MarkSignHL = { fg = p.mark_fg, bg = p.mark, bold = true },
+        MarkSignNumHL = { fg = p.mark_fg, bg = p.mark },
     }
 
     return hl
