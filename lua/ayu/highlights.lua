@@ -231,7 +231,7 @@ local function get_highlight_definitions()
     hl.plugins.neo_tree = {
         NeoTreeDirectoryIcon = { fg = p.folder, bg = bg },
         NeoTreeDirectoryName = { fg = p.fg, bg = bg },
-        NeoTreeDotfile = { fg = "#31353D", bg = bg },
+        NeoTreeDotfile = { fg = p.ignore, bg = bg },
         NeoTreeGitUnstaged = { fg = p.gray, bg = bg },
         NeoTreeTabSeparatorInactive = { fg = p.bg_dimmed, bg = p.bg_dimmed },
         NeoTreeTabInactive = { fg = p.gray, bg = p.bg_dimmed },

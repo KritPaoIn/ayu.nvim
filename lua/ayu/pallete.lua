@@ -56,6 +56,8 @@ return {
         search = "#FFF7BB",
         cursor = "#F09D53",
         mark = "#0266D6",
+        mark_fg = "#FFFFFF",
+        ignore = "#D3D9DF",
 
         diff_add = "#86B300",
         diff_change = "#399EE6",
@@ -129,6 +131,7 @@ return {
         cursor = "#F6CD76",
         mark = "#0266D6",
         mark_fg = "#C8C8C8",
+        ignore = "#31353D",
 
         diff_add = "#C2D94C",
         diff_change = "#59C2FF",
