@@ -327,6 +327,30 @@ local function get_highlight_definitions()
         MarkSignNumHL = { fg = p.mark_fg, bg = p.mark },
     }
 
+    hl.plugins.todo = {
+        TodoBGFIX = { fg = p.bg, bg = p.error, bold = true },
+        TodoBGHACK = { fg = p.bg, bg = p.warn, bold = true },
+        TodoBGNOTE = { fg = p.bg, bg = p.info, bold = true },
+        TodoBGPERF = { fg = p.bg, bg = p.constant, bold = true },
+        TodoBGTEST = { fg = p.bg, bg = p.constant, bold = true },
+        TodoBGTODO = { fg = p.bg, bg = p.info, bold = true },
+        TodoBGWARN = { fg = p.bg, bg = p.warn, bold = true },
+        TodoSIGNFIX = { fg = p.error, bg = bg },
+        TodoSIGNHACK = { fg = p.warn, bg = bg },
+        TodoSIGNNOTE = { fg = p.info, bg = bg },
+        TodoSIGNPERF = { fg = p.constant, bg = bg },
+        TodoSIGNTEST = { fg = p.constant, bg = bg },
+        TodoSIGNTODO = { fg = p.info, bg = bg },
+        TodoSIGNWARN = { fg = p.warn, bg = bg },
+        TodoFGFIX = { fg = p.error },
+        TodoFGHACK = { fg = p.warn },
+        TodoFGNOTE = { fg = p.info },
+        TodoFGPERF = { fg = p.constant },
+        TodoFGTEST = { fg = p.constant },
+        TodoFGTODO = { fg = p.info },
+        TodoFGWARN = { fg = p.warn },
+    }
+
     return hl
 end
 
