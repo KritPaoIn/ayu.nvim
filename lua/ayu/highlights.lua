@@ -26,15 +26,22 @@ local function get_highlight_definitions()
         Comment = { fg = p.comment },
         Constant = { fg = p.constant },
         String = { fg = p.string },
+        Regexp = { fg = p.regexp },
         Function = { fg = p.func },
         Operator = { fg = p.operator },
         Special = { fg = p.special },
-        Keyword = { fg = p.keyword },
-        Identifier = { fg = p.constant },
+        Keyword = { fg = p.keyword, bold = true },
+        Identifier = { fg = p.identifier },
+        Parameter = { fg = p.identifier },
+        Property = { fg = p.constant },
         Tag = { fg = p.tag },
+        Type = { fg = p.tag, bold = true },
         Markup = { fg = p.markup },
         Guide = { fg = p.guide },
-        Builtin = { fg = p.builtin },
+        Number = { fg = p.number },
+        Builtin = { fg = p.builtin, bold = true },
+        Boolean = { fg = p.number, bold = true },
+        Delimiter = { fg = p.identifier },
     }
 
     hl.common = {
@@ -57,14 +64,16 @@ local function get_highlight_definitions()
         FoldColumn = { bg = p.panel },
         SignColumn = { bg = bg },
         VertSplit = { fg = p.border },
-        FloatBorder = { fg = p.border },
+        FloatBorder = { fg = p.border, bg = bg },
+        NormalFloat = { fg = p.fg, bg = bg },
+        WinSeparator = { fg = p.border },
 
         MatchParen = { fg = p.fg, bg = bg },
         ModeMsg = { fg = p.string },
         MoreMsg = { fg = p.string },
         NonText = { fg = p.guide },
         Pmenu = { fg = p.fg, bg = bg },
-        PmenuSel = { fg = p.tag, bg = p.line, bold = true },
+        PmenuSel = { bg = p.selection, bold = true },
         PmenuSbar = { fg = p.none, bg = p.border },
 
         Question = { fg = p.string },
@@ -109,6 +118,8 @@ local function get_highlight_definitions()
         -- Number
         -- Boolean
         -- Float
+        Number = hl.predef.Number,
+        Boolean = hl.predef.Boolean,
 
         Identifier = hl.predef.Identifier,
         Function = hl.predef.Function,
@@ -133,10 +144,10 @@ local function get_highlight_definitions()
         -- StorageClass
         -- Typedef
 
-        Structure = hl.predef.Special,
+        Structure = hl.predef.Tag,
 
         Special = hl.predef.Special,
-        -- Delimiter
+        Delimiter = hl.predef.Delimiter,
         -- SpecialComment
         -- Debug
 
@@ -161,6 +172,7 @@ local function get_highlight_definitions()
         GitGutterChange = { fg = p.diff_change },
         GitGutterDelete = { fg = p.diff_delete },
     }
+
     hl.plugins.vgit = {
         GitSignsAdd = { fg = p.diff_add },
         GitSignsChange = { fg = p.diff_change },
@@ -175,17 +187,39 @@ local function get_highlight_definitions()
         GitAppBar = { fg = p.none, bg = p.bg_dimmed },
     }
 
+    hl.plugins.gitsigns = {
+        GitSignsCurrentLineBlame = {
+            fg = p.comment,
+        },
+        GitSignsAddPreview = {
+            fg = p.diff_add,
+            bg = p.diff_add_bg,
+        },
+        GitSignsDeletePreview = {
+            fg = p.diff_delete,
+            bg = p.diff_delete_bg,
+        },
+        GitSignsAddVirtLn = {
+            fg = p.diff_add,
+            bg = p.diff_add_bg,
+        },
+        GitSignsDeleteVirtLn = {
+            fg = p.diff_delete,
+            bg = p.diff_delete_bg,
+        },
+    }
+
     hl.plugins.barbar = {
         BufferCurrent = hl.common.Normal,
         BufferCurrentTarget = hl.common.Normal,
-        BufferCurrentSign = { fg = bg, bg = bg },
+        BufferCurrentSign = { fg = p.tc, bg = bg },
         BufferCurrentMod = { fg = p.yellow, bg = bg },
-        BufferVisible = { fg = p.gray, bg = bg },
-        BufferVisibleSign = { fg = bg, bg = bg },
-        BufferVisibleMod = { fg = p.yellow_dimmed, bg = bg },
-        BufferInactive = { fg = p.gray, bg = p.bg_dimmed },
+        BufferVisible = { fg = p.guide, bg = p.bg2 },
+        BufferVisibleSign = { fg = p.guide, bg = p.bg2 },
+        BufferVisibleMod = { fg = p.yellow_dimmed, bg = p.bg2 },
+        BufferInactive = { fg = p.guide, bg = p.bg_dimmed },
         BufferInactiveSign = { fg = p.bg_dimmed, bg = p.bg_dimmed },
-        BufferTabPageFill = { fg = p.bg_dimmed, bg = p.bg_dimmed },
+        BufferTabPageFill = { fg = p.fg, bg = p.bg_dimmed },
         BufferTabpages = { fg = p.bg2, bg = p.tc, bold = true },
         BufferTabpagesSep = { fg = p.bg2, bg = p.tc, bold = true },
         BufferInactiveMod = { fg = p.yellow_dimmed, bg = p.bg_dimmed },
@@ -194,14 +228,72 @@ local function get_highlight_definitions()
         BufferCurrentWARN = { fg = p.warn, bg = bg },
         BufferCurrentINFO = { fg = p.info, bg = bg },
         BufferCurrentHINT = { fg = p.hint, bg = bg },
-        BufferVisibleERROR = { fg = p.error_dimmed, bg = bg },
-        BufferVisibleWARN = { fg = p.warn_dimmed, bg = bg },
-        BufferVisibleINFO = { fg = p.info_dimmed, bg = bg },
-        BufferVisibleHINT = { fg = p.hint_dimmed, bg = bg },
+        BufferVisibleERROR = { fg = p.error_dimmed, bg = p.bg2 },
+        BufferVisibleWARN = { fg = p.warn_dimmed, bg = p.bg2 },
+        BufferVisibleINFO = { fg = p.info_dimmed, bg = p.bg2 },
+        BufferVisibleHINT = { fg = p.hint_dimmed, bg = p.bg2 },
         BufferInactiveERROR = { fg = p.error_dimmed, bg = p.bg_dimmed },
         BufferInactiveWARN = { fg = p.warn_dimmed, bg = p.bg_dimmed },
         BufferInactiveINFO = { fg = p.info_dimmed, bg = p.bg_dimmed },
         BufferInactiveHINT = { fg = p.hint_dimmed, bg = p.bg_dimmed },
+    }
+
+    hl.plugins.bufferline = {
+        BufferLineBufferSelected = hl.common.Normal,
+        BufferLineSeparatorSelected = { fg = bg, bg = bg },
+        BufferLineIndicatorSelected = { fg = p.tc, bg = bg },
+
+        BufferLineCloseButtonSelected = { fg = p.guide, bg = bg },
+
+        BufferLineBufferVisible = { fg = p.guide, bg = p.bg2 },
+        BufferLineSeparatorVisible = { fg = p.bg2, bg = p.bg2 },
+        BufferLineIndicatorVisible = { fg = p.guide, bg = p.bg2 },
+        BufferLineCloseButtonVisible = { fg = p.guide, bg = p.bg2 },
+
+        BufferLineBuffer = { fg = p.guide, bg = p.bg_dimmed },
+        BufferLineSeparator = { fg = p.bg_dimmed, bg = p.bg_dimmed },
+        BufferLineIndicator = { fg = p.bg_dimmed, bg = p.bg_dimmed },
+        BufferLineCloseButton = { fg = p.guide, bg = p.bg_dimmed },
+        BufferLineNumbers = { fg = p.guide, bg = p.bg_dimmed },
+        BufferLineTruncMarker = { fg = p.guide, bg = p.bg_dimmed },
+        BufferLineDuplicate = { fg = p.guide, bg = p.bg_dimmed },
+
+        BufferLineErrorSelected = { fg = p.error, bg = bg },
+        BufferLineWarningSelected = { fg = p.warn, bg = bg },
+        BufferLineInfoSelected = { fg = p.info, bg = bg },
+        BufferLineHintSelected = { fg = p.hint, bg = bg },
+
+        BufferLineErrorVisible = { fg = p.error_dimmed, bg = p.bg2 },
+        BufferLineWarningVisible = { fg = p.warn_dimmed, bg = p.bg2 },
+        BufferLineInfoVisible = { fg = p.info_dimmed, bg = p.bg2 },
+        BufferLineHintVisible = { fg = p.hint_dimmed, bg = p.bg2 },
+
+        BufferLineDiagnostic = { fg = p.guide, bg = p.bg_dimmed },
+        BufferLineError = { fg = p.error, bg = p.bg_dimmed },
+        BufferLineWarning = { fg = p.warn, bg = p.bg_dimmed },
+        BufferLineInfo = { fg = p.info, bg = p.bg_dimmed },
+        BufferLineHint = { fg = p.hint, bg = p.bg_dimmed },
+
+        BufferLineDiagnosticSelected = hl.common.Normal,
+        BufferLineErrorDiagnosticSelected = { fg = p.error, bg = p.bg },
+        BufferLineWarningDiagnosticSelected = { fg = p.warn, bg = bg },
+        BufferLineInfoDiagnosticSelected = { fg = p.info, bg = bg },
+        BufferLineHintDiagnosticSelected = { fg = p.hint, bg = bg },
+
+        BufferLineDiagnosticVisible = { fg = p.guide, bg = p.bg_dimmed },
+        BufferLineErrorDiagnosticVisible = { fg = p.error_dimmed, bg = p.bg_dimmed },
+        BufferLineWarningDiagnosticVisible = { fg = p.warn_dimmed, bg = p.bg_dimmed },
+        BufferLineInfoDiagnosticVisible = { fg = p.info_dimmed, bg = p.bg_dimmed },
+        BufferLineHintDiagnosticVisible = { fg = p.hint_dimmed, bg = p.bg_dimmed },
+
+        BufferLineErrorDiagnostic = { fg = p.error_dimmed, bg = p.bg_dimmed },
+        BufferLineWarningDiagnostic = { fg = p.warn_dimmed, bg = p.bg_dimmed },
+        BufferLineInfoDiagnostic = { fg = p.info_dimmed, bg = p.bg_dimmed },
+        BufferLineHintDiagnostic = { fg = p.hint_dimmed, bg = p.bg_dimmed },
+
+        BufferLineFill = { fg = p.bg_dimmed, bg = p.bg_dimmed },
+        BufferLineFillVisible = { fg = p.bg, bg = p.bg_dimmed },
+        BufferLineBackground = { fg = p.guide, bg = p.bg_dimmed },
     }
 
     hl.plugins.lspsaga = {
@@ -232,10 +324,12 @@ local function get_highlight_definitions()
         NeoTreeDirectoryIcon = { fg = p.folder, bg = bg },
         NeoTreeDirectoryName = { fg = p.fg, bg = bg },
         NeoTreeDotfile = { fg = p.ignore, bg = bg },
-        NeoTreeGitUnstaged = { fg = p.gray, bg = bg },
+        NeoTreeGitUnstaged = { fg = p.guide, bg = bg },
+        NeoTreeGitUntracked = { fg = p.guide, bg = bg },
         NeoTreeTabSeparatorInactive = { fg = p.bg_dimmed, bg = p.bg_dimmed },
-        NeoTreeTabInactive = { fg = p.gray, bg = p.bg_dimmed },
+        NeoTreeTabInactive = { fg = p.guide, bg = p.bg_dimmed },
         NeoTreeIndentMarker = { fg = p.guide, bg = bg },
+        NeoTreeModified = { fg = p.yellow },
     }
 
     hl.plugins.nvim_cmp = {
@@ -255,12 +349,31 @@ local function get_highlight_definitions()
     }
 
     hl.plugins.treesitter = {
+        ["@punctuation.delimiter"] = hl.predef.Delimiter,
+        ["@punctuation.bracket"] = hl.predef.Special,
         ["@tag"] = hl.predef.Keyword,
         ["@namespace"] = hl.predef.Special,
         ["@field"] = hl.predef.Tag,
         ["@tag.delimiter"] = hl.predef.Special,
         ["@tag.attribute"] = hl.predef.Tag,
         ["@constructor"] = hl.predef.Function,
+        ["@number"] = hl.predef.Number,
+        ["@string.regexp"] = hl.predef.Regexp,
+        ["@variable"] = hl.predef.Identifier,
+        ["@variable.parameter"] = hl.predef.Parameter,
+        ["@variable.member"] = hl.predef.Property,
+        ["@variable.builtin"] = hl.predef.Builtin,
+        ["@constant"] = hl.predef.Constant,
+        ["@constant.builtin"] = hl.predef.Builtin,
+        ["@boolean"] = hl.predef.Boolean,
+        ["@type"] = hl.predef.Tag,
+        ["@type.builtin"] = hl.predef.Type,
+        ["@property"] = hl.predef.Property,
+        ["@function.builtin"] = hl.predef.Builtin,
+    }
+
+    hl.plugins.lsp = {
+        ["@lsp.typemod.function.defaultLibrary"] = hl.predef.Builtin,
     }
 
     hl.plugins.telescope = {
@@ -349,6 +462,26 @@ local function get_highlight_definitions()
         TodoFGTEST = { fg = p.constant },
         TodoFGTODO = { fg = p.info },
         TodoFGWARN = { fg = p.warn },
+    }
+
+    hl.plugins.lazygit = {
+        LazyGitBorder = { fg = p.border, bg = bg },
+        LazyGitFloat = { fg = p.fg_normal, bg = bg },
+    }
+
+    hl.plugins.incline = {
+        InclineNormal = { fg = p.fg, bg = bg },
+        InclineNormalNC = { fg = p.fg, bg = bg },
+    }
+
+    hl.plugins.rainbow_delimiters = {
+        RainbowDelimiterRed = { fg = p.red },
+        RainbowDelimiterYellow = { fg = "#f9d949" },
+        RainbowDelimiterBlue = { fg = "#4a9df8" },
+        RainbowDelimiterOrange = { fg = p.orange },
+        RainbowDelimiterGreen = { fg = p.green },
+        RainbowDelimiterViolet = { fg = "#cc76d1" },
+        RainbowDelimiterCyan = { fg = p.cyan },
     }
 
     return hl

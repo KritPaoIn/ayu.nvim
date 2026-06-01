@@ -1,4 +1,33 @@
-return {
+local base = {
+    black = "#000000",
+    none = "NONE",
+}
+
+local semantic = {
+    markup = { light = "#F07178", dark = "#F07178" },
+    keyword = { light = "#FF7733", dark = "#FF7733" },
+    tag = { light = "#36A3D9", dark = "#36A3D9" },
+}
+
+local function pick(group, theme)
+    local t = {}
+    for k, v in pairs(group) do
+        t[k] = v[theme]
+    end
+    return t
+end
+
+local function merge(...)
+    local out = {}
+    for _, tbl in ipairs({ ... }) do
+        for k, v in pairs(tbl) do
+            out[k] = v
+        end
+    end
+    return out
+end
+
+local themes = {
     light = {
         fg = "#5C6773",
         fg_normal = "#6C7680",
@@ -23,30 +52,30 @@ return {
         fg1 = "#5C6773",
         fg2 = "#828C99",
 
+        error = "#E45454",
+        warn = "#FF9330",
+        info = "#3A9EE6",
+        hint = "#3A9EE6",
+        error_dimmed = "#C3797C",
+        warn_dimmed = "#C29865",
+        hint_dimmed = "#507789",
+        info_dimmed = "#507789",
+        error_bg = "#EFDDDF",
+        warn_bg = "#FCEFE3",
+        info_bg = "#C5E4F6",
+        hint_bg = "#C5E4F6",
+
         comment = "#ABB0B6",
-        markup = "#F07178",
         constant = "#A37ACC",
+        identifier = "#6C767A",
+        number = "#A37ACC",
+        boolean = "#A37ACC",
+        builtin = "#A37ACC",
         operator = "#E7C547",
-        tag = "#36A3D9",
         regexp = "#4CBF99",
         string = "#86B300",
         func = "#F29718",
         special = "#E6B673",
-        keyword = "#FF7733",
-        builtin = "#FF3434",
-
-        error = "#E45454",
-        error_dimmed = "#C3797C",
-        error_bg = "#EFDDDF",
-        warn = "#FF9330",
-        warn_dimmed = "#C29865",
-        warn_bg = "#FCEFE3",
-        info = "#3A9EE6",
-        info_dimmed = "#507789",
-        info_bg = "#C5E4F6",
-        hint = "#3A9EE6",
-        hint_dimmed = "#507789",
-        hint_bg = "#C5E4F6",
 
         panel = "#FFFFFF",
         line = "#F3F3F3",
@@ -57,7 +86,7 @@ return {
         cursor = "#F09D53",
         mark = "#0266D6",
         mark_fg = "#FFFFFF",
-        ignore = "#D3D9DF",
+        ignore = "#C1C5C8",
 
         diff_add = "#86B300",
         diff_change = "#399EE6",
@@ -69,14 +98,13 @@ return {
 
         folder = "#C1C5C8",
         opened_folder = "#FF8F40",
-
-        none = "NONE",
     },
+
     dark = {
         fg = "#E6E1CF",
         fg_normal = "#B3B1AD",
         fg_idle = "#3E4B59",
-        bg = "#0A0E14",
+        bg = "#0D0F16",
         bg_secondary = "#1B202A",
         bg_dimmed = "#000108",
         black = "#000000",
@@ -85,7 +113,7 @@ return {
         yellow = "#FFB454",
         yellow_dimmed = "#90662F",
         blue = "#59C2FF",
-        magenta = "#FFEE99",
+        magenta = "#D2A6FF",
         cyan = "#95E6CB",
         white = "#FFFFFF",
         gray = "Gray",
@@ -97,30 +125,30 @@ return {
         fg1 = "#E6E1CF",
         fg2 = "#3E4B59",
 
+        error = "#FF6464",
+        warn = "#FA973B",
+        info = "#58C2FF",
+        hint = "#58C2FF",
+        error_dimmed = "#702C2F",
+        warn_dimmed = "#805422",
+        info_dimmed = "#2C5763",
+        hint_dimmed = "#2C5763",
+        error_bg = "#25171E",
+        warn_bg = "#271F1C",
+        info_bg = "#051B2B",
+        hint_bg = "#051B2B",
+
         comment = "#5C6773",
-        markup = "#F07178",
+        identifier = "#B2B8C3",
         constant = "#FFEE99",
+        number = "#D2A6FF",
+        boolean = "#D2A6FF",
+        builtin = "#D2A6FF",
         operator = "#E7C547",
-        tag = "#36A3D9",
         regexp = "#95E6CB",
         string = "#B8CC52",
         func = "#FFB454",
         special = "#E6B673",
-        keyword = "#FF7733",
-        builtin = "#FF3434",
-
-        error = "#FF6464",
-        error_dimmed = "#702C2F",
-        error_bg = "#25171E",
-        warn = "#FA973B",
-        warn_dimmed = "#805422",
-        warn_bg = "#271F1C",
-        info = "#58C2FF",
-        info_dimmed = "#2C5763",
-        info_bg = "#051B2B",
-        hint = "#58C2FF",
-        hint_dimmed = "#2C5763",
-        hint_bg = "#051B2B",
 
         panel = "#14191F",
         line = "#131721",
@@ -143,7 +171,14 @@ return {
 
         folder = "#90A3AE",
         opened_folder = "#FFCC66",
-
-        none = "NONE",
     },
+}
+
+local function build(theme_name)
+    return merge(base, themes[theme_name], pick(semantic, theme_name))
+end
+
+return {
+    light = build("light"),
+    dark = build("dark"),
 }
